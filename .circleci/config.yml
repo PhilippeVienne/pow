@@ -5,5 +5,18 @@ jobs:
     - image: circleci/node:10-stretch
     steps:
     - checkout
-    - yarn install
-    - yarn run build
+    - restore_cache:
+        keys:
+        - node-modules-v1-{{ .Branch }}-{{ .Revision }}
+        - node-modules-v1-{{ .Branch }}-
+        - node-modules-v1-
+    - run: yarn install
+    - save_cache:
+        key: node-modules-{{ .Branch }}-{{ .Revision }}
+        paths:
+        - "node_modules"
+    - run: yarn run build
+    - save_cache:
+        key: build-{{ .Branch }}-{{ .Revision }}
+        paths:
+        - "build"
