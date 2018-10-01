@@ -5,4 +5,4 @@
 This repository contains the code of my website https://philippe.vienne.me
 
 ## License
-Code is under GNU AGPL V3 and content is under Creative Commons BY-NC-ND-SA
+Code is under GNU AGPL V3 and content is under Creative Commons BY-NC-ND
