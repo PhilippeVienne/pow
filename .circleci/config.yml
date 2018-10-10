@@ -29,11 +29,10 @@ jobs:
         - build-{{ .Branch }}-{{ .Revision }}
         - build-{{ .Branch }}-
         - build-
-    - add_ssh_keys
     - run:
-        name: Deploy Over SSH
+        name: Deploy on GIT
         command: |
-          scp -r build/* $SSH_USER@$SSH_HOST:/var/www/html/
+          ./scripts/deploy.sh
 
 workflows:
   version: 2
