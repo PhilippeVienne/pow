@@ -24,6 +24,7 @@ jobs:
     machine:
       enabled: true
     steps:
+    - checkout
     - restore_cache:
         keys:
         - build-{{ .Branch }}-{{ .Revision }}
